@@ -19,4 +19,5 @@ urlpatterns = [
     path('getTeam/<int:id>', views.getTeamDetail),
     path('updateTeam/<int:id>', views.updateTeam),
     path('deleteTeam/<int:id>', views.deleteTeam),
+
 ]
