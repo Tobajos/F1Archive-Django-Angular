@@ -5,7 +5,7 @@ from django.db import models
 class Team(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)
     teamPrincipal = models.CharField(max_length=100, blank=False, null=False)
-    teamHistory = models.TextField(max_length=255, blank=True)
+    teamHistory = models.TextField(max_length=1000, blank=True)
 
     def __str__(self):
         return self.name
@@ -15,7 +15,7 @@ class Driver(models.Model):
     surname = models.CharField(max_length=100, blank=False, null=False)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     age = models.PositiveIntegerField()
-    driverHistory = models.TextField(max_length=255, blank=True)
+    driverHistory = models.TextField(max_length=1000, blank=True)
 
     def __str__(self):
         return self.name +  self.surname

@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="driversList" *ngIf="drivers.length > 0">
+    
+        <div class="driverContainer" *ngFor="let driver of drivers" [routerLink]="['/Driver', driver.id]">
+          <div>
+              <p>{{ driver.name }} {{ driver.surname }}</p>
+              <p>Team: {{ driver.team.name }}</p>
+          </div>
+          
+        </div>
+      
+    </div>
+    <div *ngIf="drivers.length === 0">
+      <p>Loading...</p>
+    </div>
+</div>

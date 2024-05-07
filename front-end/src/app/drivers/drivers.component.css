@@ -1,0 +1,27 @@
+.container{
+    width:100%;
+    height:100%
+}
+
+.driversList{
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.driverContainer{
+    width:50%;
+    margin-top: 3%;
+    padding: 3% 3% 3% 3%;
+    background-color: rgb(222, 222, 223);
+    border-color: black;
+    border: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.driverContainer:hover{
+    transform: scale(1.05);
+}

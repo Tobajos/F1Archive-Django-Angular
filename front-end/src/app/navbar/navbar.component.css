@@ -1,6 +1,6 @@
 .container{
     width:100%;
-    background-color: gray;
+    background-color: rgb(222, 222, 223);
     display: flex;
     justify-content: space-between;
 }
