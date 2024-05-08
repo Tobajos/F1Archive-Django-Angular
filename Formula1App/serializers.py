@@ -11,7 +11,7 @@ class TeamSerializer(serializers.ModelSerializer):
 class TeamNameSerializers(serializers.ModelSerializer):
     class Meta:
         model = Team
-        fields = ['name']
+        fields = ['name','teamPhoto','id']
 
 class DriverSerializer(serializers.ModelSerializer):
     team = TeamNameSerializers(many=False,read_only=True)

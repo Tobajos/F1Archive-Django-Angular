@@ -51,7 +51,7 @@ export class MyApiService {
     return this.http.delete(this.baseUrl + `deleteGp/${id}`);
   }
 
-  getteams(): Observable<any>{
+  getTeams(): Observable<any>{
     return this.http.get(this.baseUrl + 'getTeams');
   }
 

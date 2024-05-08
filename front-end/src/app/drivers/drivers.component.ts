@@ -10,11 +10,15 @@ export class DriversComponent implements OnInit {
 
   drivers: any[]=[];
 
+
   constructor(private myApiService: MyApiService){}
 
   ngOnInit():void{
     this.getDrivers();
+      
   }
+
+
 
   getDrivers(): void {
     this.myApiService.getDrivers()
@@ -27,4 +31,5 @@ export class DriversComponent implements OnInit {
         }
       );
     }
+   
 }

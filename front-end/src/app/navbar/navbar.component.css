@@ -1,12 +1,23 @@
 .container{
     width:100%;
-    background-color: rgb(222, 222, 223);
+    background-color: rgb(21,21,29);    
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 60px;
 }
 
 .mid-nav{
     width:35%;  
     display:flex;
     justify-content: space-between;
+}
+.mid-nav a{
+    font-size: 30px;
+    color:white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.mid-nav a:hover{
+    color:red;
 }

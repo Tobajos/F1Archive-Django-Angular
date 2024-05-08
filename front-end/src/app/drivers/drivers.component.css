@@ -1,27 +1,71 @@
 .container{
     width:100%;
-    height:100%
+    height:100%;
+    justify-content: center;
+    display: flex;
+    padding-top: 3%;
 }
 
 .driversList{
-    width:50%;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+    width:90%;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    column-gap: 5%;
+    row-gap: 3%;;
 
 }
 
-.driverContainer{
-    width:50%;
+.driverContainer{    
+    width:300px;
     margin-top: 3%;
     padding: 3% 3% 3% 3%;
-    background-color: rgb(222, 222, 223);
-    border-color: black;
-    border: solid;
-    border-width: 1px;
-    border-radius: 10px;
+    /* background-color: rgb(222, 222, 223); */
+    border-left: solid;
+    border-bottom: solid;
+    border-width: 2px;
+    border-bottom-left-radius: 10px;
     transition: transform 0.3s;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-color:rgb(21,21,29); 
 }
 .driverContainer:hover{
     transform: scale(1.05);
+}
+
+.name-div{
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 5%;
+}
+
+.name-div p{
+    margin-top: 2px;
+    font-size: 20px;
+    margin-bottom:2px;
+    padding-bottom: 0px;
+}
+
+.name-div h3{
+    font-size: 30px;
+    margin-top:2px;
+}
+
+.team{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.team img{
+    height:auto;
+    width:auto;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.image{
+    width:100%;
 }
