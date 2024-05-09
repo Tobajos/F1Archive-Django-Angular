@@ -1,5 +1,5 @@
-.container{
-    width:100%;
+.container {
+    width: 100%;
     background-color: rgb(21,21,29);    
     display: flex;
     justify-content: space-between;
@@ -7,17 +7,56 @@
     height: 60px;
 }
 
-.mid-nav{
-    width:35%;  
+.left-nav{
+    padding-left:1%;
+    flex:1;
     display:flex;
-    justify-content: space-between;
 }
-.mid-nav a{
-    font-size: 30px;
-    color:white;
+.right-nav {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 1%;
+}
+
+.image {
+    width: 100%;
+    max-width: 100px;
+}
+
+.mid-nav {
+    flex: 1.5; /* Srodkowa część będzie trzy razy szersza od bocznych */
+    display: flex;
+    justify-content: space-around; /* Odstępy między elementami w środkowej części */
+    align-items: center;
+}
+
+.mid-nav a {
+    font-size: 20px;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
-.mid-nav a:hover{
-    color:red;
+
+.mid-nav a:hover {
+    color: red;
+}
+
+.right-nav a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.right-nav a:hover {
+    color: red;
+}
+
+
+.active{
+    font-size:25px !important;
+    font-weight: bold !important;
+    color: red !important;
 }

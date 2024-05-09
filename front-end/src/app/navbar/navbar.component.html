@@ -1,13 +1,13 @@
 <div class="container">
     <div class="left-nav">
-        <p>LOGO</p>
+        <img [src]="'assets/F1.svg.png'" [routerLink]="'/Home'" class="image">
     </div>
     <div class="mid-nav">
-        <a routerLink="/Drivers">Drivers</a>
-        <a routerLink="/Teams">Teams</a>
-        <a routerLink="/GrandPrix">GrandPrix</a>
+        <a [routerLink]="'/Drivers'" [routerLinkActive]="'active'">Drivers</a>
+        <a [routerLink]="'/Teams'" [routerLinkActive]="'active'">Teams</a>
+        <a [routerLink]="'/GrandPrix'" [routerLinkActive]="'active'">GrandPrix</a>
     </div>
     <div class="right-nav"> 
-        <p><a href="#">Login</a></p>
+        <a routerLink="/GrandPrix">Login</a>
     </div>
 </div>

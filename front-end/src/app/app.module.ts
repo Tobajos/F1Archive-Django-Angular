@@ -10,7 +10,9 @@ import { DriversComponent } from './drivers/drivers.component';
 import { TeamsComponent } from './teams/teams.component';
 import { GrandprixComponent } from './grandprix/grandprix.component';
 import { DriverDetailsComponent } from './driver-details/driver-details.component';
-
+import { AddDriverComponent } from './add-driver/add-driver.component';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 
 const routes: Routes =[
@@ -31,13 +33,16 @@ const routes: Routes =[
     DriversComponent,
     TeamsComponent,
     GrandprixComponent,
-    DriverDetailsComponent
+    DriverDetailsComponent,
+    AddDriverComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    FormsModule,
 
   ],
   providers: [],

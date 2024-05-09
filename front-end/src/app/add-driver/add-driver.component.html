@@ -1,0 +1,28 @@
+<div class="page">
+    <form (ngSubmit)="onSubmit()" #driverForm="ngForm" class="container">
+        <label for="name" class="label">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="driver.name" required class="text">
+    
+        <label for="surname" class="label">Surname:</label>
+        <input type="text" id="surname" name="surname" [(ngModel)]="driver.surname" required class="text">
+
+        <label for="number" class="label">Number:</label>
+        <input type="number" id="number" name="number" [(ngModel)]="driver.number" min="0" step="1" required class="number">
+      
+        <label for="team" class="label">Team:</label>
+        <select id="team" name="team" [(ngModel)]="driver.team" required class="dropDown">
+            <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+        </select>
+    
+        <label for="age" class="label">Age:</label>
+        <input type="number" id="age" name="age" [(ngModel)]="driver.age" min="0" step="1" required class="number">
+      
+        <label for="driverHistory" class="label">Biography:</label>
+        <textarea id="driverHistory" name="driverHistory" [(ngModel)]="driver.driverHistory" class="textArea"></textarea>
+    
+        <div class="button-container">
+            <button type="submit" [disabled]="driverForm.invalid" class="button">Add Driver</button>
+        </div>
+        
+      </form>
+</div>
