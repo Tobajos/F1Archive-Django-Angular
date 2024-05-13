@@ -13,6 +13,8 @@ import { DriverDetailsComponent } from './driver-details/driver-details.componen
 import { AddDriverComponent } from './add-driver/add-driver.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 const routes: Routes =[
@@ -43,6 +45,7 @@ const routes: Routes =[
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    FontAwesomeModule 
 
   ],
   providers: [],
