@@ -16,7 +16,10 @@
 }
 
 .team-logo{
-    width:30%;
+    height:auto;
+    width:auto;
+    max-height: 40%;
+    max-width: 40%;
 
 }
 

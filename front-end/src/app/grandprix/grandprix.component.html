@@ -1,1 +1,15 @@
-<p>grandprix works!</p>
+<div class="container">
+    <div class="gpsList" *ngIf="gps.length > 0">
+        <div *ngFor="let gp of gps" class="gpContainer">
+            <div>
+                {{gp.name}}
+            </div>
+        </div>
+    </div>
+    <div *ngIf="gps.length === 0">
+        <p>Loading...</p>
+      </div>
+</div>
+
+
+

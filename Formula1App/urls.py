@@ -10,7 +10,7 @@ urlpatterns = [
 
     path('getGps', views.getGPList),
     path('postGp',views.addGP),
-    path('getGp/<int:id>',views.getTeamDetail),
+    path('getGp/<int:id>',views.getGpDetail),
     path('updateGp/<int:id>',views.updateGp),
     path('deleteGp/<int:id>',views.deleteGp),
 
