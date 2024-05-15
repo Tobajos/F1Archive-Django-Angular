@@ -20,4 +20,10 @@ urlpatterns = [
     path('updateTeam/<int:id>', views.updateTeam),
     path('deleteTeam/<int:id>', views.deleteTeam),
 
+    path('getRaceResults', views.getRaceResultsList),
+    path('addRaceResult', views.addRaceResult),
+    path('getRaceResult/<int:id>', views.getRaceResultDetail),
+    path('updateRaceResult/<int:id>', views.updateRaceResult),
+    path('deleteRaceResult/<int:id>', views.deleteRaceResult),
+
 ]

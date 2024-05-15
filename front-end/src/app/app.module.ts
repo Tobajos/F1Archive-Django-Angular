@@ -14,15 +14,17 @@ import { AddDriverComponent } from './add-driver/add-driver.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { GrandprixDetailsComponent } from './grandprix-details/grandprix-details.component';
 
 
 
 const routes: Routes =[
-  {path: 'Home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'Drivers', component: DriversComponent },
   {path: 'Teams', component: TeamsComponent },
-  {path: 'GrandPrix', component: GrandprixComponent},
+  {path: 'GrandPrixes', component: GrandprixComponent},
   {path: 'Driver/:id', component: DriverDetailsComponent},
+  {path: 'GrandPrix/:id', component: GrandprixDetailsComponent},
 
 
 ]
@@ -37,7 +39,8 @@ const routes: Routes =[
     GrandprixComponent,
     DriverDetailsComponent,
     AddDriverComponent,
-    HeaderComponent
+    HeaderComponent,
+    GrandprixDetailsComponent
   ],
   imports: [
     BrowserModule,

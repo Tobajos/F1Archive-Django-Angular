@@ -35,3 +35,12 @@ class GrandPrix(models.Model):
 
     def __str__(self):
         return self.name    
+    
+    class RaceResult(models.Model):
+        grand_prix = models.ForeignKey(GrandPrix, on_delete=models.CASCADE)
+        driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
+        position = models.PositiveIntegerField(default=0) 
+        points = models.PositiveIntegerField(default=0)
+
+        def __str__(self):
+            return f"{self.driver} - {self.grand_prix}"

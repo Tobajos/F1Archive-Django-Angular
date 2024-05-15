@@ -1,0 +1,29 @@
+<div class="body">
+    <div class="container">
+        <div class="info">
+            <img [src]="'assets' + gp.gpPhoto" class="image">
+            <div class="box">
+                <h1>{{gp.name}}</h1>
+                <div class="stats">
+                    <div class="grid-item">
+                        <p>Date</p>
+                        <p class="text">{{gp.date}}</p>
+                    </div>
+                    <div class="grid-item">
+                        <p>Number of Laps</p>
+                        <p class="text">{{gp.laps}}</p>
+                    </div>
+                    <div class="grid-item">
+                        <p>Circuit Length</p>
+                        <p class="text">{{gp.length}} km</p>
+                    </div>
+                    <div class="grid-item">
+                        <p>Race Distance</p>
+                        <p class="text">{{gp.distance}} km</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

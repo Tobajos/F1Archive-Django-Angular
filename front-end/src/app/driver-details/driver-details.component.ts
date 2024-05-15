@@ -26,7 +26,7 @@ export class DriverDetailsComponent implements OnInit {
         this.driver = response; 
       },
       (error) => {
-        console.error('Błąd podczas pobierania kierowcy:', error);
+        console.error('Error:', error);
       }
     );
   }

@@ -3,9 +3,9 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from .models import Team, Driver, GrandPrix
+from .models import Team, Driver, GrandPrix, RaceResult
 
-from .serializers import TeamSerializer, DriverSerializer, GrandPrixSerializer
+from .serializers import TeamSerializer, DriverSerializer, GrandPrixSerializer, RaceResultSerializer
 # Create your views here.
 
 # ------------------------ Drivers ------------------------
@@ -158,4 +158,53 @@ def deleteTeam(request,id):
         return Response(status=status.HTTP_404_NOT_FOUND)
     
     team.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+
+# ------------------------ Race Results ------------------------
+
+
+@api_view(['GET'])
+def getRaceResultsList(request):
+    race_results = RaceResult.objects.all()
+    serializer = RaceResultSerializer(race_results, many=True)
+    return Response(serializer.data)
+
+@csrf_exempt
+@api_view(['POST'])
+def addRaceResult(request):
+    driver = Driver.objects.get(pk=request.data['driver'])
+    serializer = RaceResultSerializer(data=request.data,context = {'driver' : driver})
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def getRaceResultDetail(request, id):
+    try:
+        race_result = RaceResult.objects.get(pk=id)
+    except RaceResult.DoesNotExist:        
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = RaceResultSerializer(race_result)
+    return Response(serializer.data)
+    
+@api_view(['PUT'])
+def updateRaceResult(request, id):  
+    try:
+        race_result = RaceResult.objects.get(pk=id)
+    except RaceResult.DoesNotExist:        
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = RaceResultSerializer(race_result, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['DELETE'])
+def deleteRaceResult(request, id):
+    try:
+        race_result = RaceResult.objects.get(pk=id)
+    except RaceResult.DoesNotExist:        
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    race_result.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)

@@ -1,7 +1,5 @@
 from rest_framework import serializers
-from .models import GrandPrix, Driver, Team
-
-
+from .models import GrandPrix, Driver, Team, RaceResult
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,14 +28,25 @@ class DriverNameSerializers(serializers.ModelSerializer):
         model =Driver
         fields = ('id','name','surname')
     
-class GrandPrixSerializer(serializers.ModelSerializer):
-    winner = DriverNameSerializers(many=False, read_only=True)
+class GrandPrixSerializer(serializers.ModelSerializer):   
     class Meta:
         model = GrandPrix
         fields = '__all__'
     
-    def validate(self,validated_data):
-        winner = self.context['winner']
-        validated_data['winner'] = winner
-        return validated_data
 
+class GrandPrixNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GrandPrix
+        fields = ('id', 'name')
+    
+
+class RaceResultSerializer(serializers.ModelSerializer):
+    driver = DriverNameSerializers(many=False, read_only=True)
+    class Meta:
+        model = RaceResult
+        fields = '__all__'
+
+    def validate(self,validated_data):
+        driver = self.context['driver']
+        validated_data['driver'] = driver
+        return validated_data
