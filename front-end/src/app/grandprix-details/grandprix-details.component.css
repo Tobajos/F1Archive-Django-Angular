@@ -10,12 +10,30 @@
 .image{
     height:auto;
     width:auto;
-    max-height: 45%;;
-    max-width: 45%;
+    max-height: 100%;;
+    max-width: 100%;
     border: solid;
     border-radius: 5%;
-    
+    background-color: rgb(21,21,29);
+}
+.image-container {
+    position: relative;
+}
 
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0); 
+    padding-top:3%;
+}
+
+.text-overlay p {
+    color: white;
+    font-size: 30px;
+    margin: 0;
 }
 
 .info{
@@ -34,14 +52,14 @@
     column-gap: 7%;
     row-gap: 20%; 
 }
-.grid-item {
-    
+.grid-item {    
     border-bottom:solid;
     border-right:solid;
     border-width:2px;
     border-bottom-right-radius: 10px;
     display:flex;
     flex-direction: column;
+    border-color: red;
   }
 .grid-item p{
     font-size:15px;
@@ -55,4 +73,33 @@
     font-weight: bold !important;
 }
 
+.race-results{
+    padding-top:5%;
+}
+.race-results table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .race-results th, .race-results td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .race-results th {
+    background-color: #f2f2f2;
+    text-align: center; 
+  }
+  
+  .race-results tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
 
+  .race-results th:first-child, .race-results td:first-child,
+  .race-results th:last-child, .race-results td:last-child {
+    width: 15%;
+  }
+  
+  

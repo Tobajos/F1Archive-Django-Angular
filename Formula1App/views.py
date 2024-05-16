@@ -208,3 +208,12 @@ def deleteRaceResult(request, id):
         return Response(status=status.HTTP_404_NOT_FOUND)
     race_result.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def getRaceResultsByGP(request, id):
+    try:
+        race_results = RaceResult.objects.filter(grand_prix=id)
+        serializer = RaceResultSerializer(race_results, many=True)
+        return Response(serializer.data)
+    except RaceResult.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)

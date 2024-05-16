@@ -18,6 +18,7 @@ import { GrandprixDetailsComponent } from './grandprix-details/grandprix-details
 
 
 
+
 const routes: Routes =[
   {path: '', component: HomeComponent},
   {path: 'Drivers', component: DriversComponent },
@@ -40,7 +41,8 @@ const routes: Routes =[
     DriverDetailsComponent,
     AddDriverComponent,
     HeaderComponent,
-    GrandprixDetailsComponent
+    GrandprixDetailsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ const routes: Routes =[
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    FontAwesomeModule 
+    FontAwesomeModule ,
+    
 
   ],
   providers: [],

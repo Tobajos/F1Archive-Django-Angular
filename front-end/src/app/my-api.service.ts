@@ -71,4 +71,28 @@ export class MyApiService {
     return this.http.delete(this.baseUrl + `deleteTeam/${id}`);
   }
 
+  getRaceResults(): Observable<any>{
+    return this.http.get(this.baseUrl + 'getRaceResults');
+  }
+
+  addRaceResult(resultData: any): Observable<any>{
+    return this.http.post(this.baseUrl + 'addRaceResult', resultData);
+  }
+
+  getRaceResult(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + `getRaceResult/${id}`);
+  }
+
+  updateRaceResult(id: number, updatedRaceResults: any): Observable<any> {
+    return this.http.put(this.baseUrl + `updateRaceResult/${id}`, updatedRaceResults);
+  }
+
+  deleteRaceResult(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + `deleteRaceResult/${id}`);
+  }
+
+  getRaceResultsByGP(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + `getRaceResultsByGP/${id}`);
+  }
+
 }

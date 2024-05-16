@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -18,14 +20,15 @@ class Driver(models.Model):
     age = models.PositiveIntegerField()
     driverHistory = models.TextField(max_length=2000, blank=True)
     driverPhoto = models.ImageField(upload_to='driver_photos/', blank=True, null=True)
-
     number = models.PositiveIntegerField(blank=False, null=False, default=0)
+    points = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name +  self.surname
     
 class GrandPrix(models.Model):
     name = models.CharField(max_length=100,blank=False, null=False)
+    country = models.CharField(default=0,max_length=50,blank=False, null=False)
     date = models.DateField()
     laps = models.PositiveIntegerField(default=0,blank=False,null=False)
     length = models.FloatField(default=0,)
@@ -36,11 +39,18 @@ class GrandPrix(models.Model):
     def __str__(self):
         return self.name    
     
-    class RaceResult(models.Model):
-        grand_prix = models.ForeignKey(GrandPrix, on_delete=models.CASCADE)
-        driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
-        position = models.PositiveIntegerField(default=0) 
-        points = models.PositiveIntegerField(default=0)
+class RaceResult(models.Model):
+    grand_prix = models.ForeignKey(GrandPrix, on_delete=models.CASCADE)
+    driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    position = models.PositiveIntegerField(default=0) 
+    points = models.PositiveIntegerField(default=0)
 
-        def __str__(self):
-            return f"{self.driver} - {self.grand_prix}"
+    def __str__(self):
+        return f"{self.driver} - {self.grand_prix}"
+    
+
+@receiver(post_save, sender=RaceResult)
+def update_driver_points(sender, instance, created, **kwargs):
+    if created:
+        instance.driver.points += instance.points
+        instance.driver.save()

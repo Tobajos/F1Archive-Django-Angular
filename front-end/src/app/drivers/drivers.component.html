@@ -4,12 +4,16 @@
         <div class="driverContainer" *ngFor="let driver of drivers" [routerLink]="['/Driver', driver.id]">
           <div class="team"> 
               <div class="name-div">
-                <p>{{ driver.name }} </p> 
-                <h3>{{ driver.surname }}</h3>
+                <p class="name">{{ driver.name }} </p> 
+                <p class="surname">{{ driver.surname }}</p>
               </div>
-                  <img [src]="'assets/' + driver.team.teamPhoto" class="team-logo">
-              </div>              
-              <img [src]="'assets' + driver.driverPhoto" class="image">         
+          <div>
+            <p style="color:red; font-size:17px;">Points: {{driver.points}}</p>
+            <img [src]="'assets/' + driver.team.teamPhoto" class="team-logo">
+          </div>
+          
+          </div>              
+        <img [src]="'assets' + driver.driverPhoto" class="image">         
         </div>      
     </div>
     <div *ngIf="drivers.length === 0">

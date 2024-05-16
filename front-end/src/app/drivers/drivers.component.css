@@ -1,78 +1,82 @@
-.container{
-    width:100%;
-    height:100%;
+.container {
+    width: 100%;
+    height: 100%;
     justify-content: center;
     display: flex;
     padding-top: 3%;
-    
-}
-
-.driversList{
-    width:70%;
-    height: 100%;
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
+  }
+  
+  .driversList {
+    width: 70%; 
+    height: auto; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
     column-gap: 5%;
-    row-gap: 3%;
+    row-gap: 30px;
     margin-bottom: 200px;
-}
-
-.driverContainer{    
-    
-    max-width:300px;
+  }
+  
+  .driverContainer {    
+    width: 100%; 
     max-height: 600px;
     margin-top: 3%;
-    padding: 3% 3% 3% 3%;
-    /* background-color: rgb(222, 222, 223); */
+    padding: 3%;
     border-left: solid;
     border-bottom: solid;
-    border-width: 2px;
+    border-width: 4px;
     border-bottom-left-radius: 10px;
     transition: transform 0.3s;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-color:rgb(21,21,29); 
-}
-.driverContainer:hover{
+    border-color: rgb(21, 21, 29); 
+  }
+  
+  .driverContainer:hover {
     transform: scale(1.05);
-}
-
-.name-div{
-    display:flex;
+  }
+  
+  .name-div {
+    display: flex;
     flex-direction: column;
     justify-content: start;
     padding-top: 5%;
-}
-
-.name-div p{
+  }
+  
+  .name {
     margin-top: 2px;
     font-size: 20px;
-    margin-bottom:2px;
     padding-bottom: 0px;
-}
-
-.name-div h3{
+    margin-bottom: 0;
+  }
+  
+  .surname {
+    font-size: 25px;
+    padding: 0;
+    margin-top: 0;
+    font-weight: bold;
+  }
+  
+  .name-div h3 {
     font-size: 30px;
-    margin-top:2px;
-}
-
-.team{
-    display:flex;
+    margin-top: 2px;
+  }
+  
+  .team {
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-}
-.team img{
-    
-    width:5vw;
-    max-width: 50%;
-    max-height: 50%;
-}
-
-.image{
-    height:auto;
-    width:auto;
-    max-height: 100%;;
+  }
+  
+  .team img {
+    width: 90px;
+  }
+  
+  .image {
+    height: auto;
+    width: auto;
+    max-height: 100%;
     max-width: 100%;
-}
+  }
+  

@@ -1,6 +1,10 @@
 <div class="container">
     <div class="gpsList" *ngIf="gps.length > 0">
-        <div *ngFor="let gp of gps" class="gpContainer" [routerLink]="['/GrandPrix',gp.id]">    
+        <div *ngFor="let gp of gps, let i = index" class="gpContainer" [routerLink]="['/GrandPrix',gp.id]">    
+            <div class="title">
+                <p class="round">Round {{i + 1}}</p>
+                <p class="name">{{gp.country}}</p>
+            </div>
             <p>{{gp.name}}</p>
             <img [src]="'assets' + gp.gpPhoto" class="image">    
         </div>
