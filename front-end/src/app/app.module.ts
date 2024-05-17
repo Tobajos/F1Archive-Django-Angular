@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GrandprixDetailsComponent } from './grandprix-details/grandprix-details.component';
-
+import { AddResultsComponent } from './add-results/add-results.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -42,6 +43,7 @@ const routes: Routes =[
     AddDriverComponent,
     HeaderComponent,
     GrandprixDetailsComponent,
+    AddResultsComponent,
 
   ],
   imports: [
@@ -51,6 +53,7 @@ const routes: Routes =[
     RouterModule.forRoot(routes),
     FormsModule,
     FontAwesomeModule ,
+    MatDialogModule
     
 
   ],

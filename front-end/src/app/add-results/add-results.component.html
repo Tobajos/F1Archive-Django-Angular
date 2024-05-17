@@ -1,0 +1,26 @@
+<h2>Add Race Results</h2>
+<form (ngSubmit)="onSubmit(addResultsForm)" #addResultsForm="ngForm">
+
+  <div class="form-group">
+    <label for="driver">Driver</label>
+    <select id="driver" name="driver" class="form-control" [(ngModel)]="newResult.driverId" required>
+      <option *ngFor="let driver of availableDrivers" [value]="driver.id">
+        {{ driver.name }} {{ driver.surname }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="position">Position</label>
+    <select id="position" name="position" class="form-control" [(ngModel)]="position" required>
+      <option *ngFor="let pos of availablePositions" [value]="pos">
+        {{ pos }}
+      </option>
+    </select>
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">
+      Cancel
+    </button>
+  </div>
+</form>

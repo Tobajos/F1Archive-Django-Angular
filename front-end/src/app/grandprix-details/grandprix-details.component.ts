@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MyApiService } from 'src/app/my-api.service';
 import { MatDialog } from '@angular/material/dialog';
+import { AddResultsComponent } from 'src/app/add-results/add-results.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class GrandprixDetailsComponent implements OnInit {
   gp: any;
   raceResults: any[] = [];
 
-  constructor(private route: ActivatedRoute, private myApiService: MyApiService,) { }
+  constructor(private route: ActivatedRoute, private myApiService: MyApiService, private dialog:MatDialog) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -24,7 +25,7 @@ export class GrandprixDetailsComponent implements OnInit {
     });
   }
 
-  getGrandPrixDetails(id: number) {
+  getGrandPrixDetails(id: number) {                                                                         
     this.myApiService.getGP(id).subscribe(
       (response) => {
         this.gp = response;
@@ -46,6 +47,14 @@ export class GrandprixDetailsComponent implements OnInit {
     );
   }
 
- 
-
+  openAddResultsModal() {
+    this.dialog.open(AddResultsComponent, {
+      width: '60%',
+      height: '400px',
+      data: {
+        grandPrixId: this.gp.id 
+      }
+      
+    });
+  }
 }
