@@ -45,16 +45,8 @@
     color:black;
 }
 .dropDown select {
-    /* Zmiana koloru czcionki */
     color: black;
-    /* Zmiana koloru tła rozwijanego menu */
     background-color: white;
-}
-.dropDown select:hover {
-    /* Zmiana koloru czcionki przy najechaniu myszką */
-    color: blue;
-    /* Dodanie efektu hover przy najechaniu myszką */
-    background-color: lightgray;
 }
 
 

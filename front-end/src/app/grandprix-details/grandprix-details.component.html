@@ -28,27 +28,42 @@
                         <p class="text">{{gp.distance}} km</p>
                     </div>
                 </div>
-                <div class="race-results" *ngIf="raceResults && raceResults.length > 0">
-                    <h2>Race Results</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Position</th>
-                                <th>Name</th>
-                                <th>Points</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let result of raceResults">
-                                <td>{{ result.position }}</td>
-                                <td>{{ result.driver.name }} {{ result.driver.surname }}</td>                                
-                                <td>{{ result.points }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                
             </div>
         </div>
-        <button (click)="openAddResultsModal()">Add Results</button>
+        <div class="resultBox">
+            <div style="display:flex; 
+                        flex-direction: row;
+                        width:43%;
+                        justify-content: space-between;
+                        margin-left: 30%;
+                        align-items: center;">
+                <p>Race Results</p>
+                <fa-icon class="icon" [icon]="settings" (click)="openAddResultsModal()">Add Results</fa-icon>
+            </div>            
+            <div class="race-results" *ngIf="raceResults && raceResults.length > 0">  
+                <table>
+                    <thead>
+                        <tr>
+                            <th>POS</th>
+                            <th>DRIVER</th>
+                            <th>PTS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let result of raceResults">
+                            <td>{{ result.position }}</td>
+                            <td>{{ result.driver.name }} {{ result.driver.surname }}</td>                                
+                            <td>{{ result.points }}</td>
+                            <td style="vertical-align: middle;">
+                                <fa-icon style="font-size:20px;font-weight: bold; text-align: center;" [icon]="delete" (click)="deleteRaceResult(result.id)">Add Results</fa-icon>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        
+        
     </div>
 </div>

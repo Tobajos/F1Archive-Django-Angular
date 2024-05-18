@@ -34,6 +34,8 @@
   
   .driverContainer:hover {
     transform: scale(1.05);
+    cursor: pointer;
+    border-color:red;
   }
   
   .name-div {

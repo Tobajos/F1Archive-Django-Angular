@@ -5,6 +5,9 @@
 }
 .container{
     width:75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .image{
@@ -73,19 +76,40 @@
     font-weight: bold !important;
 }
 
+.icon{
+    font-size:30px;
+}
+.icon:hover{
+    color:red;
+    cursor: pointer;
+}
+
+.resultBox{
+    width:100%;
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+}
+.resultBox p{
+    font-size: 25px;
+}
+
 .race-results{
-    padding-top:5%;
+    width:80%;
+    padding-left: 7%;
+    
 }
 .race-results table {
-    width: 70%;
+    width: 90%;
     border-collapse: collapse;
     margin-top: 20px;
   }
   
   .race-results th, .race-results td {
-    border: 1px solid #dddddd;
+    
     padding: 8px;
-    text-align: left;
+    text-align: center;
+    
   }
   
   .race-results th {
@@ -100,6 +124,7 @@
   .race-results th:first-child, .race-results td:first-child,
   .race-results th:last-child, .race-results td:last-child {
     width: 15%;
+    
   }
   
   .dialog{

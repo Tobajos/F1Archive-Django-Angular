@@ -1,5 +1,5 @@
-import { Component, OnInit,Inject } from '@angular/core';
-import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MyApiService } from 'src/app/my-api.service';
 import { NgForm } from '@angular/forms';
 
@@ -9,26 +9,24 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-results.component.css']
 })
 export class AddResultsComponent implements OnInit {
-  newResult: any = {
-  };
-
-  gp : Number | any;
+  newResult: any = {};
+  gp: Number | any;
   availableDrivers: any[] = [];
-  availablePositions: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-  selectedPositions: number[] = [];
+  availablePositions: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   position: number | any;
   grandPrixId: number;
-
+  currentResults: any[]; // Obecne wyniki
 
   constructor(
     private dialogRef: MatDialogRef<AddResultsComponent>,
     private myApiService: MyApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { grandPrixId: number }
+    @Inject(MAT_DIALOG_DATA) public data: { grandPrixId: number, currentResults: any[] } // Odebranie przekazanych danych
   ) {}
 
   ngOnInit() {
-    this.gp= this.data.grandPrixId;
-    this.getAvailableDrivers() 
+    this.gp = this.data.grandPrixId;
+    this.currentResults = this.data.currentResults; // Przypisanie przekazanych wyników
+    this.getAvailableDrivers();
   }
 
   getAvailableDrivers() {
@@ -43,38 +41,42 @@ export class AddResultsComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const points = this.calculatePoints(Number(this.position))
+    if (this.currentResults.length >= 20) {
+      alert('Cannot add more than 20 results.');
+      return;
+    }
+     
+    if (this.currentResults.some(result => Number(result.position) === Number(form.value.position))) {
+      alert('This position is already taken.');
+      return;
+    }
+    
+    if (this.currentResults.some(result => Number(result.driver.id) === Number(form.value.driver))) {
+      alert('This driver is already in the results table.');
+      return;
+    }
+  
+    const points = this.calculatePoints(Number(this.position));
     this.newResult = {
       driver: form.value.driver,
-      position: form.value.position,        
-      points: points,                                      
+      position: form.value.position,
+      points: points,
       grand_prix: this.gp 
     };
     console.log('Submitting result:', this.newResult);
-    this.addSelectedPosition(form.value.position);
-    console.log('addSelectedPosition', this.selectedPositions);
     this.myApiService.addRaceResult(this.newResult).subscribe(
       (response) => {
-        
         console.log('Response:', response);
         this.dialogRef.close(true);
-        window.location.reload();               
       },
       (error) => {
-        console.error('Error adding result', error);                                                                                                                                                                                                                     
+        console.error('Error adding result', error);
       }
     );
   }
 
-
   onCancel() {
-    this.dialogRef.close(false); 
-  }
-
-  addSelectedPosition(position:number) {
-    if (position) { 
-      this.selectedPositions.push(Number(position));  
-    }
+    this.dialogRef.close(false);
   }
 
   calculatePoints(position: number): number {
