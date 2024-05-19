@@ -18,8 +18,8 @@
 .team-logo{
     height:auto;
     width:auto;
-    max-height: 40%;
-    max-width: 40%;
+    max-height: 20%;
+    max-width: 20%;
 
 }
 
@@ -28,3 +28,25 @@
     flex-direction: column;
     padding:2%;
 }
+.informations p{
+    width:auto;
+    margin-bottom: 0;
+}
+
+.stats{
+    display:flex;   
+}
+
+.text{
+    margin-right: 1%;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    border-bottom: solid;
+    border-left: solid;
+    border-width: 2px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border-color: red;
+}
+

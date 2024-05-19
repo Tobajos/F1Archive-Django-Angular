@@ -4,32 +4,36 @@ import { MyApiService } from 'src/app/my-api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddResultsComponent } from 'src/app/add-results/add-results.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGear,faUserMinus} from '@fortawesome/free-solid-svg-icons';
-
+import { faGear, faUserMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'grandprix-details',
   templateUrl: './grandprix-details.component.html',
-  styleUrls: ['./grandprix-details.component.css']
+  styleUrls: ['./grandprix-details.component.css'],
 })
 export class GrandprixDetailsComponent implements OnInit {
-
+  plus = faPlus;
   settings = faGear;
   delete = faUserMinus;
   gp: any;
   raceResults: any[] = [];
+  checkRole: boolean = false;
 
-  constructor(private route: ActivatedRoute, private myApiService: MyApiService, private dialog: MatDialog) { }
+  constructor(
+    private route: ActivatedRoute,
+    private myApiService: MyApiService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const id = +params['id'];
       this.getGrandPrixDetails(id);
       this.getRaceResults(id);
     });
   }
 
-  getGrandPrixDetails(id: number) {                                                                         
+  getGrandPrixDetails(id: number) {
     this.myApiService.getGP(id).subscribe(
       (response) => {
         this.gp = response;
@@ -43,7 +47,9 @@ export class GrandprixDetailsComponent implements OnInit {
   getRaceResults(id: number) {
     this.myApiService.getRaceResultsByGP(id).subscribe(
       (response) => {
-        this.raceResults = response.sort((a: any, b: any) => a.position - b.position); 
+        this.raceResults = response.sort(
+          (a: any, b: any) => a.position - b.position
+        );
       },
       (error) => {
         console.error('Error', error);
@@ -51,18 +57,21 @@ export class GrandprixDetailsComponent implements OnInit {
     );
   }
 
+  onCheckboxChange(value: boolean) {
+    console.log('Checkbox value:', value);
+  }
+
   openAddResultsModal() {
     const dialogRef = this.dialog.open(AddResultsComponent, {
-      width: '50%',
+      width: '35%',
       height: '350px',
       data: {
         grandPrixId: this.gp.id,
-        currentResults: this.raceResults
-      }
-     
+        currentResults: this.raceResults,
+      },
     });
-console.log(this.raceResults);
-    dialogRef.afterClosed().subscribe(result => {
+    console.log(this.raceResults);
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.getRaceResults(this.gp.id);
       }

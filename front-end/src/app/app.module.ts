@@ -17,8 +17,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GrandprixDetailsComponent } from './grandprix-details/grandprix-details.component';
 import { AddResultsComponent } from './add-results/add-results.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
-
+import { BaseChartDirective } from 'ng2-charts';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { ChartModule } from '@syncfusion/ej2-angular-charts';
 
 const routes: Routes =[
   {path: '', component: HomeComponent},
@@ -52,12 +53,12 @@ const routes: Routes =[
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    FontAwesomeModule ,
-    MatDialogModule
-    
-
+    FontAwesomeModule,
+    MatDialogModule,
+    BaseChartDirective,
+    ChartModule
   ],
-  providers: [],
+  providers: [provideCharts(withDefaultRegisterables())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

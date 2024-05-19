@@ -10,6 +10,8 @@ import { MyApiService } from 'src/app/my-api.service';
 export class DriverDetailsComponent implements OnInit {
 
   driver: any;
+  driverResults: any;
+  public primaryXAxis: Object;
 
   constructor(private route: ActivatedRoute, private myApiService: MyApiService) { }
 
@@ -17,6 +19,7 @@ export class DriverDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       const id = +params['id']; 
       this.getDriverDetails(id);
+      this.getResults(id);
     });
   }
 
@@ -29,5 +32,17 @@ export class DriverDetailsComponent implements OnInit {
         console.error('Error:', error);
       }
     );
+  }
+
+  getResults(id: number): void {
+    this.myApiService.getRaceResultsByDriver(id).subscribe(
+      response => {
+        this.driverResults = response;
+        console.log(this.driverResults);
+      },
+      error => {
+        console.error('Error', error);
+    }
+    )
   }
 }

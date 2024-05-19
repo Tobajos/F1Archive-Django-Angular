@@ -42,6 +42,7 @@ class GrandPrixNameSerializer(serializers.ModelSerializer):
 
 class RaceResultSerializer(serializers.ModelSerializer):
     driver = DriverNameSerializers(many=False, read_only=True)
+    grand_prix = GrandPrixNameSerializer(many=False, read_only=True)
     class Meta:
         model = RaceResult
         fields = '__all__'

@@ -95,4 +95,7 @@ export class MyApiService {
     return this.http.get(this.baseUrl + `getRaceResultsByGP/${id}`);
   }
 
+  getRaceResultsByDriver(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + `getRaceResultsByDriver/${id}`);
+  }
 }

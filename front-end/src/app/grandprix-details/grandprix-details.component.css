@@ -1,135 +1,170 @@
-.body{
-    display:flex;
-    justify-content: center;
-    padding-top: 3%;
+.body {
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
 }
-.container{
-    width:75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.container {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.image{
-    height:auto;
-    width:auto;
-    max-height: 100%;;
-    max-width: 100%;
-    border: solid;
-    border-radius: 5%;
-    background-color: rgb(21,21,29);
+.image {
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+  border: solid;
+  border-radius: 5%;
+  background-color: rgb(21, 21, 29);
 }
 .image-container {
-    position: relative;
+  position: relative;
 }
 
 .text-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0); 
-    padding-top:3%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  padding-top: 3%;
 }
 
 .text-overlay p {
-    color: white;
-    font-size: 30px;
-    margin: 0;
+  color: white;
+  font-size: 30px;
+  margin: 0;
 }
 
-.info{
-    display:flex;
-    flex-direction: row;
+.info {
+  display: flex;
+  flex-direction: row;
 }
 
-.box{
-    padding-left: 5%;
-
+.box {
+  padding-left: 5%;
 }
-.stats{
-    display:grid;
-    grid-template-columns: auto auto; 
-    grid-template-rows: auto auto; 
-    column-gap: 7%;
-    row-gap: 20%; 
+.stats {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 7%;
+  row-gap: 20%;
 }
-.grid-item {    
-    border-bottom:solid;
-    border-right:solid;
-    border-width:2px;
-    border-bottom-right-radius: 10px;
-    display:flex;
-    flex-direction: column;
-    border-color: red;
-  }
-.grid-item p{
-    font-size:15px;
-    margin:0;
-    padding:0;
-    
+.grid-item {
+  border-bottom: solid;
+  border-right: solid;
+  border-width: 2px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border-color: red;
+}
+.grid-item p {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
 }
 
-.text{
-    font-size:30px !important;
-    font-weight: bold !important;
+.text {
+  font-size: 30px !important;
+  font-weight: bold !important;
 }
 
-.icon{
-    font-size:30px;
+.icon {
+  font-size: 30px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
-.icon:hover{
-    color:red;
-    cursor: pointer;
+.icon:hover {
+  color: red;
+  cursor: pointer;
+  transform: scale(1.15);
 }
-
-.resultBox{
+.results-container{
     width:100%;
-    display: flex;  
+    display:flex;
     flex-direction: column;
     align-items: center;
-}
-.resultBox p{
-    font-size: 25px;
+
 }
 
-.race-results{
-    width:80%;
-    padding-left: 7%;
-    
+.resultBox {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.resultBox p {
+  font-size: 40px;
+
+}
+
+.race-results {
+  width: 100%;
+  
 }
 .race-results table {
-    width: 90%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .race-results th, .race-results td {
-    
-    padding: 8px;
-    text-align: center;
-    
-  }
-  
-  .race-results th {
-    background-color: #f2f2f2;
-    text-align: center; 
-  }
-  
-  .race-results tr:nth-child(even) {
-    background-color: #f9f9f9;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.race-results th,
+.race-results td {
+  padding: 8px;
+  text-align: center;
+}
+
+.race-results th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.race-results tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.race-results th:first-child,
+.race-results td:first-child,
+.race-results th:last-child,
+.race-results td:last-child {
+  width: 15%;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.settings {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.settings:hover {
+  color: red;
+  cursor: pointer;
+  transform: scale(1.15) !important;
+}
+
+.edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox {
+  cursor:pointer;
+  border-radius: 50%;
+}
+
+.checkbox input[type="checkbox"] {
+    display: none; 
   }
 
-  .race-results th:first-child, .race-results td:first-child,
-  .race-results th:last-child, .race-results td:last-child {
-    width: 15%;
-    
-  }
-  
-  .dialog{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 40px;
-    }

@@ -217,3 +217,12 @@ def getRaceResultsByGP(request, id):
         return Response(serializer.data)
     except RaceResult.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
+    
+@api_view(['GET'])
+def getRaceResultsByDriver(request, id):
+    try:
+        race_results = RaceResult.objects.filter(driver_id=id)
+        serializer = RaceResultSerializer(race_results, many=True)
+        return Response(serializer.data)
+    except RaceResult.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)

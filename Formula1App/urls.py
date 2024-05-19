@@ -26,4 +26,5 @@ urlpatterns = [
     path('updateRaceResult/<int:id>', views.updateRaceResult),
     path('deleteRaceResult/<int:id>', views.deleteRaceResult),
     path('getRaceResultsByGP/<int:id>', views.getRaceResultsByGP),
+    path('getRaceResultsByDriver/<int:id>/', views.getRaceResultsByDriver),
 ]
