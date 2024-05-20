@@ -5,10 +5,13 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from .models import Team, Driver, GrandPrix, RaceResult
 
-from .serializers import TeamSerializer, DriverSerializer, GrandPrixSerializer, RaceResultSerializer
+from .serializers import TeamSerializer, DriverSerializer, GrandPrixSerializer, RaceResultSerializer,RaceResultInfoSerializer, UserSerializer
 # Create your views here.
 
+
+
 # ------------------------ Drivers ------------------------
+    
 
 @api_view(['GET'])
 def getDriversList(request):
@@ -222,7 +225,7 @@ def getRaceResultsByGP(request, id):
 def getRaceResultsByDriver(request, id):
     try:
         race_results = RaceResult.objects.filter(driver_id=id)
-        serializer = RaceResultSerializer(race_results, many=True)
+        serializer = RaceResultInfoSerializer(race_results, many=True)
         return Response(serializer.data)
     except RaceResult.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)

@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 # Create your models here.
@@ -54,3 +54,8 @@ def update_driver_points(sender, instance, created, **kwargs):
     if created:
         instance.driver.points += instance.points
         instance.driver.save()
+
+@receiver(post_delete, sender=RaceResult)
+def subtract_driver_points(sender, instance, **kwargs):
+    instance.driver.points -= instance.points
+    instance.driver.save()

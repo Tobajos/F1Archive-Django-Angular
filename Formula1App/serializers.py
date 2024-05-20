@@ -1,5 +1,12 @@
 from rest_framework import serializers
 from .models import GrandPrix, Driver, Team, RaceResult
+from django.contrib.auth.models import User
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('is','username','password')
+        extra_kwargs = {'password': {'write_only': True}}
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,10 +44,21 @@ class GrandPrixSerializer(serializers.ModelSerializer):
 class GrandPrixNameSerializer(serializers.ModelSerializer):
     class Meta:
         model = GrandPrix
-        fields = ('id', 'name')
+        fields = ('id', 'name','country')
     
 
 class RaceResultSerializer(serializers.ModelSerializer):
+    driver = DriverNameSerializers(many=False, read_only=True)
+    class Meta:
+        model = RaceResult
+        fields = '__all__'
+
+    def validate(self,validated_data):
+        driver = self.context['driver']
+        validated_data['driver'] = driver
+        return validated_data
+
+class RaceResultInfoSerializer(serializers.ModelSerializer):
     driver = DriverNameSerializers(many=False, read_only=True)
     grand_prix = GrandPrixNameSerializer(many=False, read_only=True)
     class Meta:
@@ -51,3 +69,4 @@ class RaceResultSerializer(serializers.ModelSerializer):
         driver = self.context['driver']
         validated_data['driver'] = driver
         return validated_data
+    

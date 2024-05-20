@@ -1,1 +1,5 @@
-<p>teams works!</p>
+<div *ngFor="let team of teams" [routerLink]="['/Teams',team.id]">
+    <div>
+        <p>{{team.name}}</p>
+    </div>
+</div>

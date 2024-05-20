@@ -15,11 +15,13 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GrandprixDetailsComponent } from './grandprix-details/grandprix-details.component';
+import { TeamDetailsComponent } from './team-details/team-details.component';
 import { AddResultsComponent } from './add-results/add-results.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BaseChartDirective } from 'ng2-charts';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
-import { ChartModule } from '@syncfusion/ej2-angular-charts';
+import { ChartModule } from 'angular-highcharts';
+
 
 const routes: Routes =[
   {path: '', component: HomeComponent},
@@ -28,8 +30,7 @@ const routes: Routes =[
   {path: 'GrandPrixes', component: GrandprixComponent},
   {path: 'Driver/:id', component: DriverDetailsComponent},
   {path: 'GrandPrix/:id', component: GrandprixDetailsComponent},
-
-
+  {path: 'Teams/:id', component: TeamDetailsComponent},
 ]
 
 @NgModule({
@@ -45,6 +46,7 @@ const routes: Routes =[
     HeaderComponent,
     GrandprixDetailsComponent,
     AddResultsComponent,
+    TeamDetailsComponent,
 
   ],
   imports: [

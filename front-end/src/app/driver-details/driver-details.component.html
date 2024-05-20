@@ -1,32 +1,38 @@
 <div class="body">
-    <div class="container">
-      <div class="info">
-          <img [src]="'assets' + driver.driverPhoto" class="image"> 
-          <ejs-chart class="chart" [primaryXAxis]="primaryXAxis">
-            
-          </ejs-chart>                
-      </div> 
-      <div class="informations"> 
-        <div style="display: flex; flex-direction: row;">
-          <h1 style="margin-right: 10%;">{{driver.number}}</h1>           
-          <img [src]="'assets/' + driver.team.teamPhoto" class="team-logo">
+  <div class="container">
+    <div class="info">
+      <img [src]="'assets' + driver.driverPhoto" class="image"> 
+      <div class="charts">
+        <div class="line">
+          <div [chart]="chart"></div>
+        </div>
+      </div>              
+    </div> 
+    <div class="informations">
+      <h1>{{driver.name}} {{driver.surname}}</h1>  
+      <div style="display: flex; flex-direction: row;">        
+      <div>
+        <div class="stats">
+          <p class="text">Number: </p>
+          <p>{{driver.number}}</p>
         </div>
         <div class="stats">
           <p class="text">Team: </p>
-          <p> {{driver.team.name}}</p>
+          <p style="width:220px">{{driver.team.name}}</p>
         </div>
         <div class="stats">
           <p class="text">Age: </p>
-          <p > {{ driver.age }}</p>
+          <p>{{driver.age}}</p>
         </div> 
         <div class="stats">
           <p class="text">Points: </p>
-          <p> {{driver.points}}</p>
-        </div>            
-      </div>  `
-      <h1> {{driver.name}} {{ driver.surname }}</h1>       
-      <p> {{ driver.driverHistory }}</p>
+          <p>{{driver.points}}</p>
+        </div>     
+      </div>
+      <!-- <img [src]="'assets/' + driver.team.teamPhoto" class="team-logo"> -->
+    </div>   
     </div>
-    
-    
+          
+    <p>{{driver.driverHistory}}</p>
+  </div>
 </div>

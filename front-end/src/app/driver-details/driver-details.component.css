@@ -10,6 +10,7 @@
 .info{
     display:flex;
     flex-direction: row;
+    align-items: center;
 }
 .image{
     width:500px;
@@ -18,9 +19,8 @@
 .team-logo{
     height:auto;
     width:auto;
-    max-height: 20%;
-    max-width: 20%;
-
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .informations{
@@ -28,13 +28,14 @@
     flex-direction: column;
     padding:2%;
 }
-.informations p{
+/* .informations p{
     width:auto;
     margin-bottom: 0;
-}
+} */
 
 .stats{
-    display:flex;   
+    display:flex;  
+    width:auto; 
 }
 
 .text{
@@ -50,3 +51,6 @@
     border-color: red;
 }
 
+.charts{
+    margin-left: 10%;
+}
