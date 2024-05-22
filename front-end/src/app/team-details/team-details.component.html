@@ -1,1 +1,36 @@
-<p>team-details works!</p>
+<div class="page">
+    <div class="container">
+        <div class="info">
+            <h1>{{ team.name }}</h1>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div style="width: 50%; display: flex; flex-direction: column; align-items: center;">
+                    <img class="image" [src]="'assets' + team.teamPhoto" />
+                    <div class="informations">
+                        <div class="stats">
+                            <p class="text">Team Points:</p>
+                            <p style="font-size: 20px">{{ team.points }}</p>
+                        </div>
+                        <div class="stats">
+                            <p class="text">Team Principal:</p>
+                            <p style="font-size: 20px">{{ team.teamPrincipal }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="drivers-container">
+                    <div *ngFor="let driver of drivers" class="name-container" [routerLink]="['/Driver', driver.id]">
+                        <img class="driver-image" [src]="'assets' + driver.driverPhoto" />
+                        <div class="driver-info">
+                            <div class="driver-details">
+                                <p style="font-size:20px">{{driver.number}}</p>
+                                <p style="color:red;">Points:{{driver.points}}</p>
+                            </div>
+                            
+                            <div class="names">{{ driver.name }} {{ driver.surname }}</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

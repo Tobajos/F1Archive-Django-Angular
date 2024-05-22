@@ -7,6 +7,7 @@ urlpatterns = [
     path('getDriver/<int:id>', views.getDriverDetail),
     path('updateDriver/<int:id>',views.updateDriver),
     path('deleteDriver/<int:id>',views.deleteDriver),
+    path('getDriversByTeam/<int:id>',views.getDriversByTeam),
 
     path('getGps', views.getGPList),
     path('postGp',views.addGP),
@@ -27,4 +28,5 @@ urlpatterns = [
     path('deleteRaceResult/<int:id>', views.deleteRaceResult),
     path('getRaceResultsByGP/<int:id>', views.getRaceResultsByGP),
     path('getRaceResultsByDriver/<int:id>/', views.getRaceResultsByDriver),
+    
 ]

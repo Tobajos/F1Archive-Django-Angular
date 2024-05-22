@@ -61,6 +61,15 @@ def deleteDriver(request,id):
     driver.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
+@api_view(['GET'])
+def getDriversByTeam(request, id):
+    try:
+        drivers = Driver.objects.filter(team_id=id)
+        serializer = DriverSerializer(drivers, many=True)
+        return Response(serializer.data)
+    except Team.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
 # ------------------------ Grand Prix ------------------------
 
 @api_view(['GET'])
@@ -111,7 +120,7 @@ def deleteGp(request,id):
     gp.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
     
-# ------------------------ Drivers ------------------------
+# ------------------------ Teams ------------------------
 
 @api_view(['GET'])
 def getTeamList(request):

@@ -30,7 +30,7 @@ const routes: Routes =[
   {path: 'GrandPrixes', component: GrandprixComponent},
   {path: 'Driver/:id', component: DriverDetailsComponent},
   {path: 'GrandPrix/:id', component: GrandprixDetailsComponent},
-  {path: 'Teams/:id', component: TeamDetailsComponent},
+  {path: 'Team/:id', component: TeamDetailsComponent},
 ]
 
 @NgModule({

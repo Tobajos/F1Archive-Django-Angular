@@ -1,5 +1,11 @@
-<div *ngFor="let team of teams" [routerLink]="['/Teams',team.id]">
-    <div>
-        <p>{{team.name}}</p>
+<div class="container">
+    <div class="teamsList" *ngIf="teams.length>0">
+        <div class="teamsContainer" *ngFor="let team of teams" [routerLink]="['/Team',team.id]">
+            <div class="card">
+                <p>{{team.name}}</p>
+                <img [src]="'assets' + team.teamPhoto" class="image">
+            </div>
+        </div>
     </div>
+    
 </div>

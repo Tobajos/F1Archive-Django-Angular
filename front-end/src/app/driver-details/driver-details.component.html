@@ -1,5 +1,6 @@
 <div class="body">
   <div class="container">
+    <h1>{{driver.name}} {{driver.surname}}</h1> 
     <div class="info">
       <img [src]="'assets' + driver.driverPhoto" class="image"> 
       <div class="charts">
@@ -8,10 +9,9 @@
         </div>
       </div>              
     </div> 
-    <div class="informations">
-      <h1>{{driver.name}} {{driver.surname}}</h1>  
-      <div style="display: flex; flex-direction: row;">        
-      <div>
+    <div class="informations"> 
+      <div style="display: flex; flex-direction: row; justify-content: space-around;">        
+      
         <div class="stats">
           <p class="text">Number: </p>
           <p>{{driver.number}}</p>
@@ -28,7 +28,7 @@
           <p class="text">Points: </p>
           <p>{{driver.points}}</p>
         </div>     
-      </div>
+      
       <!-- <img [src]="'assets/' + driver.team.teamPhoto" class="team-logo"> -->
     </div>   
     </div>

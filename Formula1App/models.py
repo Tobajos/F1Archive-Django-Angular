@@ -9,6 +9,7 @@ class Team(models.Model):
     teamPrincipal = models.CharField(max_length=100, blank=False, null=False)
     teamHistory = models.TextField(max_length=2000, blank=True)
     teamPhoto = models.ImageField(upload_to='team_photos/', blank=True, null=True)
+    points = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -59,3 +60,15 @@ def update_driver_points(sender, instance, created, **kwargs):
 def subtract_driver_points(sender, instance, **kwargs):
     instance.driver.points -= instance.points
     instance.driver.save()
+
+@receiver(post_save, sender=Driver)
+def update_team_points(sender, instance, **kwargs):
+    team = instance.team
+    team.points = sum(driver.points for driver in team.driver_set.all())
+    team.save()
+
+@receiver(post_delete, sender=Driver)
+def update_team_points_on_delete(sender, instance, **kwargs):
+    team = instance.team
+    team.points = sum(driver.points for driver in team.driver_set.all())
+    team.save()

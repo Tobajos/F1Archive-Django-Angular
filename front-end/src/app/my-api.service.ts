@@ -31,6 +31,10 @@ export class MyApiService {
     return this.http.delete(this.baseUrl + `deleteDriver/${id}`);
   }
 
+  getDriversByTeam(id:number):Observable<any>{
+    return this.http.get(this.baseUrl + `getDriversByTeam/${id}`)
+  }
+
   getGPs(): Observable<any>{
     return this.http.get(this.baseUrl + 'getGps');
   }
@@ -98,4 +102,5 @@ export class MyApiService {
   getRaceResultsByDriver(id: number): Observable<any> {
     return this.http.get(this.baseUrl + `getRaceResultsByDriver/${id}`);
   }
+
 }

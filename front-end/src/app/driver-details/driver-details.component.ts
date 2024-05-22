@@ -99,16 +99,14 @@ export class DriverDetailsComponent implements OnInit {
         this.driverResults = response;
         console.log(this.driverResults);
   
-        // Obliczanie sumy punktów
-        this.totalPoints = this.driverResults.reduce((total: number, result: any) => total + result.points, 0);
-  
-        // Przygotowanie danych dla wykresu
+
+        this.totalPoints = this.driverResults.reduce((total: number, result: any) => total + result.points, 0);        
         const categories = this.driverResults.map((result: any) => result.grand_prix.country);
   
         const points = this.driverResults.reduce((data: any[], result: any, index: number) => {
           const roundPoints = result.points;
           const totalPoints = (index === 0) ? roundPoints : data[data.length - 1][1] + roundPoints; 
-          data.push([index, totalPoints]); // Numer rundy zaczyna się od 0
+          data.push([index, totalPoints]);
           return data;
         }, []); 
   
