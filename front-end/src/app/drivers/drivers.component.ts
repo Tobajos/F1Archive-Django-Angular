@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MyApiService} from 'src/app/my-api.service'
+import { faPlus,faMagnifyingGlass,faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'drivers',
@@ -9,7 +11,7 @@ import {MyApiService} from 'src/app/my-api.service'
 export class DriversComponent implements OnInit {
 
   drivers: any[]=[];
-
+  plus = faPlus;
 
   constructor(private myApiService: MyApiService){}
 

@@ -82,3 +82,12 @@
     max-width: 100%;
   }
   
+  .icon {
+    color: rgb(21, 21, 29);
+    font-size: 30px;
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
