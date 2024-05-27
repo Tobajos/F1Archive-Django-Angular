@@ -8,6 +8,11 @@
         <a [routerLink]="'/GrandPrixes'" [routerLinkActive]="'active'">GrandPrix</a>
     </div>
     <div class="right-nav"> 
-        <a routerLink="/GrandPrix">Login</a>
+        <ng-container *ngIf="authService.isLoggedIn(); else loggedOut">
+            <a (click)="logout()">Logout</a>
+        </ng-container>
+        <ng-template #loggedOut>            
+            <a routerLink="/Login">Login</a>
+        </ng-template>
     </div>
 </div>

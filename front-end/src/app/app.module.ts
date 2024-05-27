@@ -20,6 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BaseChartDirective } from 'ng2-charts';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { ChartModule } from 'angular-highcharts';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes =[
@@ -30,6 +32,8 @@ const routes: Routes =[
   {path: 'Driver/:id', component: DriverDetailsComponent},
   {path: 'GrandPrix/:id', component: GrandprixDetailsComponent},
   {path: 'Team/:id', component: TeamDetailsComponent},
+  {path: 'Login', component: LoginComponent},
+  {path: 'Register', component: RegisterComponent},
 ]
 
 @NgModule({
@@ -45,6 +49,8 @@ const routes: Routes =[
     GrandprixDetailsComponent,
     AddResultsComponent,
     TeamDetailsComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [

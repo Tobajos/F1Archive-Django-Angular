@@ -27,9 +27,9 @@
 }
 
 .mid-nav {
-    flex: 1.5; /* Srodkowa część będzie trzy razy szersza od bocznych */
+    flex: 1.5; 
     display: flex;
-    justify-content: space-around; /* Odstępy między elementami w środkowej części */
+    justify-content: space-around; 
     align-items: center;
 }
 
@@ -49,10 +49,12 @@
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
+    
 }
 
 .right-nav a:hover {
     color: red;
+    cursor: pointer;
 }
 
 

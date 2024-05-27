@@ -1,0 +1,14 @@
+<div class="page">
+  <form (submit)="login()" class="container">
+    <label class="label" for="username">Username:</label>
+    <input class="text" id="username" [(ngModel)]="username" name="username" required>
+    <label class="label" for="password">Password:</label>
+    <input class="text" id="password" [(ngModel)]="password" name="password" type="password" required>
+    <div class="button-container">
+      <button class="button" type="submit">Login</button>
+    </div>
+    <div class="register">
+      <p>Don't have an account?</p><a class="signUp" [routerLink]="'/Register'">Sign Up</a>
+    </div>
+  </form>
+</div>

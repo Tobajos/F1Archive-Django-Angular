@@ -18,7 +18,7 @@ export class GrandprixDetailsComponent implements OnInit {
   gp: any;
   raceResults: any[] = [];
   checkRole: boolean = false;
-
+  isLogin:boolean;
   constructor(
     private route: ActivatedRoute,
     private myApiService: MyApiService,
@@ -30,6 +30,7 @@ export class GrandprixDetailsComponent implements OnInit {
       const id = +params['id'];
       this.getGrandPrixDetails(id);
       this.getRaceResults(id);
+      this.isLogin = this.myApiService.isLoggedIn();
     });
   }
 
@@ -81,7 +82,6 @@ export class GrandprixDetailsComponent implements OnInit {
     this.myApiService.deleteRaceResult(resultId).subscribe(
       (response) => {
         console.log('Result deleted successfully:', response);
-        // Odśwież listę wyników po usunięciu
         this.getRaceResults(this.gp.id);
       },
       (error) => {

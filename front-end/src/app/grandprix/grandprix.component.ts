@@ -9,12 +9,12 @@ import {MyApiService} from 'src/app/my-api.service'
 export class GrandprixComponent implements OnInit {
 
   gps: any[]=[];
+  isLogin:boolean;
 
   constructor(private myApiService: MyApiService){}
 
   ngOnInit():void{
     this.getGps();
-       
   }
 
   getGps(): void {

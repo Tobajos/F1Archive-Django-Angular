@@ -1,7 +1,7 @@
 <div
   style="display: flex; justify-content: end; padding-right: 2%; margin-top: 2%"
 >
-  <fa-icon [icon]="plus" [routerLink]="'/add-driver'" class="icon"></fa-icon>
+<fa-icon *ngIf="isLogin" [icon]="plus" [routerLink]="'/add-driver'" class="icon"></fa-icon>
 </div>
 
 <div class="container">

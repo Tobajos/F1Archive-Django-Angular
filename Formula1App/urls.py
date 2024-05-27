@@ -2,6 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+
+    path('register', views.register),
+    path('login', views.login),
+    path('logout', views.logout),
+
     path('getDrivers', views.getDriversList),
     path('postDriver', views.addDriver),
     path('getDriver/<int:id>', views.getDriverDetail),

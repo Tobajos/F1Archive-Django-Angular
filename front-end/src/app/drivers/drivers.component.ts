@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 })
 export class DriversComponent implements OnInit {
 
+  isLogin : boolean;
   drivers: any[]=[];
   plus = faPlus;
 
@@ -17,7 +18,7 @@ export class DriversComponent implements OnInit {
 
   ngOnInit():void{
     this.getDrivers();
-      
+    this.isLogin = this.myApiService.isLoggedIn();
   }
 
 

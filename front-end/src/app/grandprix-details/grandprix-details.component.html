@@ -42,7 +42,7 @@
             align-items: center;
           "
         >
-          <div class="edit">
+          <div class="edit" *ngIf="isLogin">
             <p style="font-size: 16px">EditMode</p>
             <input
               class="checkbox"
