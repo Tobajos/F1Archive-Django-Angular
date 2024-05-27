@@ -4,7 +4,8 @@ import { MyApiService } from 'src/app/my-api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddResultsComponent } from 'src/app/add-results/add-results.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGear, faUserMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faUserMinus, faPlus, faBan } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'grandprix-details',
@@ -12,17 +13,21 @@ import { faGear, faUserMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./grandprix-details.component.css'],
 })
 export class GrandprixDetailsComponent implements OnInit {
+
   plus = faPlus;
+  deleteGP = faBan;
   settings = faGear;
   delete = faUserMinus;
   gp: any;
   raceResults: any[] = [];
   checkRole: boolean = false;
   isLogin:boolean;
+  
   constructor(
     private route: ActivatedRoute,
     private myApiService: MyApiService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -86,6 +91,17 @@ export class GrandprixDetailsComponent implements OnInit {
       },
       (error) => {
         console.error('Error deleting result', error);
+      }
+    );
+  }
+  deleteGp(GpId: number) {
+    this.myApiService.deleteGP(GpId).subscribe(
+      (response) => {
+        console.log('GrandPrix delete successfully:', response);
+        this.router.navigate(['/GrandPrixes']);
+      },
+      (error) => {
+        console.error('Error deleting grandprix', error);
       }
     );
   }

@@ -1,3 +1,8 @@
+<div
+  style="display: flex; justify-content: end; padding-right: 2%; margin-top: 2%"
+>
+<fa-icon *ngIf="isLogin" [icon]="plus" [routerLink]="'/add-team'" class="icon"></fa-icon>
+</div>
 <div class="container">
     <div class="teamsList" *ngIf="teams.length>0">
         <div class="teamsContainer" *ngFor="let team of teams" [routerLink]="['/Team',team.id]">

@@ -1,3 +1,8 @@
+<div
+  style="display: flex; justify-content: end; padding-right: 2%; margin-top: 2%"
+>
+<fa-icon *ngIf="isLogin" [icon]="plus" [routerLink]="'/add-grandprix'" class="icon"></fa-icon>
+</div>
 <div class="container">
     <div class="gpsList" *ngIf="gps.length > 0">
         <div *ngFor="let gp of gps, let i = index" class="gpContainer" [routerLink]="['/GrandPrix',gp.id]">    

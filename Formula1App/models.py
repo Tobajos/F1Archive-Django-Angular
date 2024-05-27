@@ -24,7 +24,7 @@ class Driver(models.Model):
     number = models.PositiveIntegerField(blank=False, null=False, default=0)
     points = models.PositiveIntegerField(default=0)
 
-    def __str__(self):
+    def __str__(self):  
         return self.name +  self.surname
     
 class GrandPrix(models.Model):

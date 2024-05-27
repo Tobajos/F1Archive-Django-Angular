@@ -1,7 +1,6 @@
 .body{
     display:flex;
     justify-content: center;
-    padding-top: 3%;
 }
 .container{
     width:75%;
@@ -51,3 +50,16 @@
 .charts{
     margin-left: 10%;
 }
+
+.settings {
+    margin-right: 3%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .settings:hover {
+    color: red;
+    cursor: pointer;
+    transform: scale(1.15) !important;
+  }

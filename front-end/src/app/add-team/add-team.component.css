@@ -1,0 +1,100 @@
+.page{
+    padding-top:2%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.label{
+    font-size: 25px;
+    margin-top: 1%;
+}
+
+.text{
+    font-size:20px;
+    width:20%;
+    border:none;
+    border-bottom: solid;
+    border-left: solid;
+    border-bottom-left-radius: 10px;
+    border-color: red;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.text:focus {
+    outline: none; 
+}
+
+.dropDown{
+    width:25%;
+    font-size:20px;
+    border:none;
+    border-bottom: solid;
+    border-left: solid;
+    border-bottom-left-radius: 10px;
+    border-color: red;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: transparent;
+    color:black;
+}
+.dropDown select {
+    color: black;
+    background-color: white;
+}
+
+
+.number{
+    width:5%;
+    font-size:20px;
+    border:none;
+    border-bottom: solid;
+    border-left: solid;
+    border-bottom-left-radius: 10px;
+    border-color:red;
+        padding-bottom: 10px;
+    padding-left: 10px;
+}
+.number:focus {
+    outline: none; 
+}
+
+.textArea{
+    width:50%;
+    height:200px;
+    font-size:20px;
+    border:solid;
+    border-color: red;
+    border-radius: 10px;
+}
+.textArea:focus {
+    outline: none; 
+    padding:10px;
+}
+
+.button-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:3%;
+}
+
+.button{
+    font-size: 20px;
+    background-color: rgb(21,21,29); ;
+    color:white;
+    padding:10px;
+    border:none;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.button:hover{
+    transform: scale(1.2);
+}

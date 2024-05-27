@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MyApiService } from 'src/app/my-api.service';
 import { Chart } from 'angular-highcharts';
+import { faUserMinus } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router'
+
 
 @Component({
   selector: 'driver-details',
@@ -10,18 +13,22 @@ import { Chart } from 'angular-highcharts';
 })
 export class DriverDetailsComponent implements OnInit {
 
+  
+  delete = faUserMinus
   driver: any;
   driverResults: any;
   chart: Chart;
   totalPoints: number = 0;
+  isLogin : boolean;
 
-  constructor(private route: ActivatedRoute, private myApiService: MyApiService) { }
+  constructor(private route: ActivatedRoute, private myApiService: MyApiService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       const id = +params['id']; 
       this.getDriverDetails(id);
       this.getResults(id);
+      this.isLogin = this.myApiService.isLoggedIn();
     });
 
     this.initializeChart();
@@ -120,13 +127,21 @@ export class DriverDetailsComponent implements OnInit {
   
   updateChart(categories: string[], points: number[][]) {
     if (this.chart && this.chart.ref) {
-      // Aktualizacja kategorii osi X
       this.chart.ref.xAxis[0].setCategories(categories);
-  
-      // Aktualizacja danych wykresu
       this.chart.ref.series[0].setData(points);
     }
   }
-  
-  
+
+  deleteDriver(driverId: number) {
+    console.log('ID kierowcy:', driverId);
+    this.myApiService.deleteDriver(driverId).subscribe(
+      (response) => {
+        console.log('Driver deleted successfully:', response);
+        this.router.navigate(['/Drivers']);
+      },
+      (error) => {
+        console.error('Error deleting result', error);
+      }
+    );
+  }
 }

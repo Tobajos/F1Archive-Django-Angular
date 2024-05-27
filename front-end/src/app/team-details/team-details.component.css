@@ -112,3 +112,15 @@
 .text-container {
   padding-left: 7%;
 }
+
+.delete {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.delete:hover {
+  color: red;
+  cursor: pointer;
+  transform: scale(1.15) !important;
+}

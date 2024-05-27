@@ -1,17 +1,20 @@
+<div style="width: 100%; text-align: end; padding-top: 1%;">
+  <fa-icon *ngIf="isLogin" class="settings" [icon]="delete" (click)="deleteDriver(driver.id)"></fa-icon>
+</div>
 <div class="body">
   <div class="container">
-    <h1>{{driver.name}} {{driver.surname}}</h1> 
+    <h1>{{driver.name}} {{driver.surname}}</h1>
     <div class="info">
-      <img [src]="'assets' + driver.driverPhoto" class="image"> 
+      <img [src]="'assets' + driver.driverPhoto" class="image">
       <div class="charts">
         <div class="line">
           <div [chart]="chart"></div>
         </div>
-      </div>              
-    </div> 
-    <div class="informations"> 
-      <div style="display: flex; flex-direction: row; justify-content: space-around;">        
-      
+      </div>
+    </div>
+    <div class="informations">
+      <div style="display: flex; flex-direction: row; justify-content: space-around;">
+
         <div class="stats">
           <p class="text">Number: </p>
           <p>{{driver.number}}</p>
@@ -23,16 +26,16 @@
         <div class="stats">
           <p class="text">Age: </p>
           <p>{{driver.age}}</p>
-        </div> 
+        </div>
         <div class="stats">
           <p class="text">Points: </p>
           <p>{{driver.points}}</p>
-        </div>     
-      
-      <!-- <img [src]="'assets/' + driver.team.teamPhoto" class="team-logo"> -->
-    </div>   
+        </div>
+
+        <!-- <img [src]="'assets/' + driver.team.teamPhoto" class="team-logo"> -->
+      </div>
     </div>
-          
+
     <p>{{driver.driverHistory}}</p>
   </div>
 </div>

@@ -1,0 +1,30 @@
+<div class="page">
+    <p style="font-size: 40px;">Add new Grand Prix</p>
+    <form (ngSubmit)="onSubmit()" #grandprixForm="ngForm" class="container">
+        <label for="name" class="label">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="grandprix.name" required class="text">
+    
+        <label for="country" class="label">Country:</label>
+        <input type="text" id="country" name="country" [(ngModel)]="grandprix.country" required class="text">
+
+        <label for="laps" class="label">Number of laps:</label>
+        <input type="number" id="laps" name="laps" [(ngModel)]="grandprix.laps" min="0" step="1" required class="number">
+      
+        <label for="length" class="label">Length (1 lap):</label>
+        <input type="number" id="length" name="length" [(ngModel)]="grandprix.length" min="0" step="1" required class="number">
+    
+        <label for="distance" class="label">Distance:</label>
+        <input type="number" id="distance" name="distance" [(ngModel)]="grandprix.distance" min="0" step="1" required class="number">
+
+        <label for="date" class="label">Date:</label>
+        <input type="date" id="date" name="date" [(ngModel)]="grandprix.date" required class="text">
+
+        <label for="gpHistory" class="label">Grand Prix History:</label>
+        <textarea id="gpHistory" name="gpHistory" [(ngModel)]="grandprix.gpHistory" class="textArea"></textarea>
+    
+        <div class="button-container">
+            <button type="submit" [disabled]="grandprixForm.invalid" class="button">Add GrandPrix</button>
+        </div>
+        
+    </form>
+</div>

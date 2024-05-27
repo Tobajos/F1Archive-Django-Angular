@@ -71,3 +71,13 @@
     border-radius: 10%;
     border-color:red;
 }
+
+.icon {
+    color: rgb(21, 21, 29);
+    font-size: 30px;
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}

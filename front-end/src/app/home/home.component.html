@@ -1,5 +1,50 @@
-<h1>Home Page</h1>
-
-
-
+<div class="tables-container">
+    <div class="table-wrapper">
+      <h2 >Constructors Standings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Team Name</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <img [src]="'assets' + team.teamPhoto" alt="{{ team.name }} Logo" class="team-logo">
+              {{ team.name }}
+            </td>
+            <td>{{ team.points }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="table-wrapper">
+      <h2>Driver Standings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Driver Name</th>
+            <th>Team</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let driver of drivers; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ driver.name }} {{ driver.surname }}</td>
+            <td>
+              <img [src]="'assets' + driver.team.teamPhoto" alt="{{ driver.team.name }} Logo" class="team-logo">
+              {{ driver.team.name }}
+            </td>
+            <td>{{ driver.points }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   

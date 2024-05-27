@@ -22,6 +22,8 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { ChartModule } from 'angular-highcharts';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AddTeamComponent } from './add-team/add-team.component';
+import { AddGrandprixComponent } from './add-grandprix/add-grandprix.component';
 
 
 const routes: Routes =[
@@ -34,6 +36,8 @@ const routes: Routes =[
   {path: 'Team/:id', component: TeamDetailsComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegisterComponent},
+  {path: 'add-team', component: AddTeamComponent},
+  {path: 'add-grandprix', component: AddGrandprixComponent},
 ]
 
 @NgModule({
@@ -51,6 +55,8 @@ const routes: Routes =[
     TeamDetailsComponent,
     LoginComponent,
     RegisterComponent,
+    AddTeamComponent,
+    AddGrandprixComponent,
 
   ],
   imports: [

@@ -109,8 +109,9 @@ def getGPList(request):
 @csrf_exempt
 @api_view(['POST'])
 def addGP(request):
-    winner = Driver.objects.get(pk=request.data['winner'])
-    serializer = GrandPrixSerializer(data=request.data,context = {'winner' : winner})
+    serializer = GrandPrixSerializer(data=request.data)
+    print(request.data)
+
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)

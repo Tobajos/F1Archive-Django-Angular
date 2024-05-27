@@ -16,7 +16,7 @@ export class NavbarComponent {
       localStorage.removeItem('user');
       this.router.navigate(['/']); 
     }, (error) => {
-      console.error(error);
+      console.error("logout error",error);
     });
   }
 }

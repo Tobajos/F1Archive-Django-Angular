@@ -1,0 +1,18 @@
+<div class="page">
+    <p style="font-size: 40px;">Add new Team</p>
+    <form (ngSubmit)="onSubmit()" #teamForm="ngForm" class="container">
+        <label for="name" class="label">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="team.name" required class="text">
+    
+        <label for="teamPrincipal" class="label">Team Principal:</label>
+        <input type="text" id="teamPrincipal" name="teamPrincipal" [(ngModel)]="team.teamPrincipal" required class="text">
+              
+        <label for="teamHistory" class="label">Team Hisotry:</label>
+        <textarea id="teamHistory" name="teamHistory" [(ngModel)]="team.teamHistory" class="textArea"></textarea>
+    
+        <div class="button-container">
+            <button type="submit" [disabled]="teamForm.invalid" class="button">Add Driver</button>
+        </div>
+        
+      </form>
+</div>
